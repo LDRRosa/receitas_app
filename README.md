@@ -31,11 +31,3 @@ lib/
     ├── lista_receitas.dart        # Lista de cards de uma aba
     └── receita_card.dart          # Card clicável de receita
 ```
-
-## Como a navegação atende ao enunciado
-
-- **Abas inferiores**: `BottomNavigationBar` + `IndexedStack` na `HomeScreen`. O `IndexedStack` mantém as três listas vivas, então a troca entre abas é instantânea.
-- **Card → Detalhes**: cada `Card` usa `InkWell` com `Navigator.push`, empilhando a `DetalhesScreen` sobre a tela principal.
-- **Voltar para a mesma aba**: como a `HomeScreen` permanece na pilha (não é recriada), o índice da aba fica guardado no seu `State`. A seta da AppBar e o botão "voltar" do aparelho fazem `pop` e o usuário reaparece na aba de onde saiu.
-- **Drawer**: aberto pelo ícone de menu que o `Scaffold` coloca automaticamente na AppBar. Os itens fecham o Drawer (`Navigator.pop`) e abrem Configurações ou Sobre com `Navigator.push`.
-- **Favoritos** (extra): o coração no card e na tela de detalhes marca/desmarca a receita; a contagem aparece em Configurações.
